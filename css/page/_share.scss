@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+.sharefoodWrapper {
+    .share {
+        &__item {
+            position: relative;
+            width: 1200px;
+            height: 630px;
+            // padding: 40px 0;
+            background: url(../images/bg2.jpg) repeat center center;
+            background-size: cover;
+            color: #fff;
+            padding: 40px;
+            display: flex;
+        }
+    
+        &__number {
+            position: absolute;
+            top: -9px;
+            left: 0;
+            font-size: 77px;
+            @include textstroke;
+            font-weight: 900;
+            letter-spacing: -3px;
+            line-height: 1em;
+        }
+        &__pic {
+            position: relative;
+            width: calc(50% - 20px);
+            border-radius: 50%;
+            background: url(../images/bg.jpg) repeat center center;
+            margin-right: 20px;
+            &-item {
+                width: 100%;
+                padding-bottom: 102%;
+            }
+        }
+
+        &__intro {
+            width: calc(50% - 20px);
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    
+        &__name {
+            border-bottom: 2px solid $blue;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+    
+            &-cn {
+                @include textstroke;
+                font-size: 80px;
+                font-weight: 900;
+                letter-spacing: -5px;
+                line-height: 1.1em;
+                margin-bottom: 7px;
+            }
+    
+            &-en {
+                @include textstroke(white, 2px);
+                font-size: 38px;
+                font-weight: 900;
+                letter-spacing: -2px;
+                line-height: 1em;
+            }
+        }
+    
+        &__detail {
+            font-size: 22px;
+            margin-bottom: 7px;
+    
+            &-last {
+                margin-bottom: 10px;
+            }
+        }
+    
+        &__heading {
+            position: relative;
+            display: inline-block;
+            width: 105px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: $blue;
+            margin-left: 26px;
+            margin-right: 5px;
+    
+            &:before {
+                content: "";
+                position: absolute;
+                width: 31px;
+                height: 30px;
+                background: url(../images/popup-titleDec.png) no-repeat right center;
+                background-size: contain;
+                left: -31px;
+                top: 0;
+            }
+        }
+    
+        &__content {
+            display: inline-block;
+        }
+    
+        &__desc {
+            font-size: 22px;
+        }
+    }
+}

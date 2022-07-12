@@ -1,0 +1,7 @@
+@charset "UTF-8";
+@charset "UTF-8";
+
+@mixin textstroke($color:white,$stroke:3px){
+    color: black;
+    text-shadow: 0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color,0 0 $stroke $color;
+}

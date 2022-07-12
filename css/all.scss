@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@import "vendor";       //vendors       -Other Sass Framework
+@import "base";         //base          -共用變數與函數
+@import "layout";       //layout        -共用版型
+@import "page";         //page/index    -各頁面主要內容
+
+
+/*--------------------------------------------------------------
+  SASS 四個特色：
+    變數（Variables）、
+    函式（Mixin）、
+    繼承（Extend）、
+    巢狀撰寫（Nesting）
+----------------------------------------------------------------*/

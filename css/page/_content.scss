@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+html, body {
+  font-size: 22px;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.container-fluid {
+  padding: 0 !important;
+}
+
+.wrapper {
+  position: relative;
+}
+
+// 不顯示卷軸
+// .wrapper::-webkit-scrollbar {
+//     display: none;
+// }
+
+.main {
+}

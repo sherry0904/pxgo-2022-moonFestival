@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no">
+
+	<title>中秋職烤達人選書：烤焦圖鑑</title>
+	<meta name="description" content="烤焦食材，意指食材過度燒烤而炭化變黑，毫無食慾為其特徵。出沒於中秋時節，數量多寡，取決對烤者對於食材、火候、時間的掌握與了解。卓越的烤者之路，由此啟程。" />
+	<meta name="keywords" content="" />
+
+	<link rel="shortcut icon" type="image/png" href="">
+	<link rel="image_src" href="images/all_share.png?200921" />
+	<meta property="og:title" content="中秋職烤達人選書：烤焦圖鑑" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="images/all_share.png?200921" />
+	<meta property="og:description" content="烤焦食材，意指食材過度燒烤而炭化變黑，毫無食慾為其特徵。出沒於中秋時節，數量多寡，取決對烤者對於食材、火候、時間的掌握與了解。卓越的烤者之路，由此啟程。" />
+
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/all.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127965478-3"></script>
+
+
+</head>
+
+<body>
+
+  <div class="wrapper listWrapper" id="app">
+    <header>
+			<div class="hamburger">
+				<div class="line"></div>
+			</div>
+			<nav class="menu">
+				<div class="menu__back"></div>
+				<ul class="menu__list">
+					<li class="menu__item menu-explore">
+						<a href="index.html"></a>
+					</li>
+					<li class="menu__item menu-index">
+						<a href="list.html"></a>
+					</li>
+					<li class="menu__item menu-challenge">
+						<a href="game.html"></a>
+					</li>
+					<li class="menu__item menu-regulation">
+						<a href="regulation.html"></a>
+					</li>
+					<li class="menu__item menu-share">
+						<a href="javascript:void(0)"></a>
+					</li>
+				</ul>
+				<p class="menu__copyright">PX Mart MASTER CHEF All rights reserved.2020</p>
+			</nav>
+		</header>
+
+    <main class="main">
+      <div class="filter">
+        <div class="filter__box">
+          <div class="filter__current d-md-none">目前選項<span>▼</span></div>
+          <ul class="filter__nav">
+            <li class="filter__option active" ref="datatype" @click="settype($event,'all')">總覽</li>
+            <li class="filter__option" @click="settype($event,'cirlcle')">圓形</li>
+            <li class="filter__option" @click="settype($event,'square')">方形</li>
+            <li class="filter__option" @click="settype($event,'rect')">長條</li>
+            <li class="filter__option" @click="settype($event,'fish')">魚類</li>
+            <li class="filter__option" @click="settype($event,'compre')">奇形</li>
+            <li class="filter__option" @click="settype($event,'burntshort')">烤焦時間短>長</li>
+            <li class="filter__option" @click="settype($event,'burntlong')">烤焦時間長>短</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="filter__content">
+        <h3 class="filter__title">總覽</h3>
+        <ul class="filter__list">
+          <li class="filter__item" v-for="(food,idx) in filterfoods" :data-name="food.id" :ref="idx" @click="showdetail($event,idx,food.id);" v-cloak>
+            <div class="filter__num">{{food.foodid}}</div>
+            <div class="filter__pic">
+              <div class="filter__pic-item" :style="'background: url(./images/main/'+food.id+'.svg) center center/ 100% auto no-repeat;'"></div>
+              <!-- <div class="filter__pic-item" :style="{background: 'url(./images/game/'+food.id+'.svg) no-repeat center center',backgroundSize:+'55% auto'}"></div> -->
+            </div>
+            <div class="filter__name">
+              <div class="filter__name-cn">{{food.cnname}}</div>
+              <div class="filter__name-en">{{food.enname}}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+    <div class="popup popup-food">
+      <div class="popup__box">
+        <div class="swiper-container food-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="food in filterfoods" :data-foodidx="food.id" v-cloak>
+              <div class="food__item">
+                <div class="food__number">{{food.foodid}}</div>
+                <div class="food__pic">
+                  <div class="food__pic-item">
+                    <img class="food__pic-img" :src="'./images/main/'+food.id+'.svg'" alt="">
+                  </div>
+                  <div class="food__pic-bigger" onclick="main.magnifyIntoPage()"></div>
+                </div>
+                <div class="food__name">
+                  <div class="food__name-cn">{{food.cnname}}</div>
+                  <div class="food__name-en">{{food.enname}}</div>
+                </div>
+                <div class="food__detail">
+                  <div class="food__heading">分 類</div>
+                  <div class="food__content">{{food.category}}</div>
+                </div>
+                <div class="food__detail">
+                  <div class="food__heading">體 態</div>
+                  <div class="food__content">{{food.posture}}</div>
+                </div>
+                <div class="food__detail">
+                  <div class="food__heading">烤者心態</div>
+                  <div class="food__content">{{food.mentality}}</div>
+                </div>
+                <div class="food__detail">
+                  <div class="food__heading">分 布</div>
+                  <div class="food__content">{{food.distributed}}</div>
+                </div>
+                <p class="food__desc">{{food.content}}</p>
+                <div class="food__btn">
+                  <a :href="food.link" target="_blank" class="food__share" :data-ga="'more_'+food.enname">解鎖圖鑑原樣</a>
+                  <a href="javascript:void(0)" class="food__link" @click="sharefood" :data-ga="'share_'+food.enname"><img src="images/rectangle.png" alt=""><img src="images/rectangle.png" alt="">分享圖鑑</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="popup__close"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup popup-magnify">
+    <div class="popup__bg"></div>
+    <div class="popup__box">
+      <svg class="magnify__svg">
+        <g class="magnify__g">
+          <image xlink:href="images/game/1.svg" src="images/game/1.svg" width="100%" height="100%"/>
+        </g>
+      </svg>
+      <div class="popup__close"></div>
+    </div>
+  </div>
+
+
+  <script src="lib/jquery-1.11.3.min.js"></script>
+  <script src="lib/jquery.mobile.touch.min.js"></script>
+  <script src="lib/bootstrap-4.0.0/js/tether.min.js"></script>
+  <script src="lib/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="lib/gsap.min.js"></script>
+  <script src="lib/swiper.min.js"></script>
+
+  <script src="js/utlis.js"></script>
+  <script src="js/ga.js"></script>
+
+  <script src="js/main.js?v=2"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/list.js"></script>
+
+</body>
+
+</html>

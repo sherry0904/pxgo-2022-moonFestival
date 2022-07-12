@@ -1,0 +1,269 @@
+@charset "UTF-8";
+.hamburger {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 45px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 9;
+    .line {
+        position: relative;
+        width: 26px;
+        height: 6px;
+        border-radius: 10px;
+        background-color: #4522f3;
+        transition: width 0.3s;
+        &:before,&:after {
+            position: absolute;
+            left: 0;
+            content: "";
+            background-color: #4522f3;
+            height: 6px;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+        &:before {
+            width: 35px;
+            top: 11px;
+        }
+        &:after {
+            width: 20px;
+            top: 22px;
+        }
+    }
+    &:hover {
+        .line {
+            width: 45px;
+            &:before {
+                width: 30px;
+            }
+            &:after {
+                width: 35px;
+            }
+        }
+    }
+}
+.menu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(black,0.7);
+    z-index: 9;
+    overflow: hidden;
+    opacity: 0;
+    &__back {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        width: 44px;
+        padding-bottom: 13%;
+        background: url(../images/back.png) no-repeat right center;
+        background-size: contain;
+        z-index: 1;
+        cursor: pointer;
+        &:hover {
+            background: url(../images/back_hover.png) no-repeat right center;
+            background-size: contain;
+        }
+    }
+    &__list {
+        position: relative;
+        list-style: none;
+        width: 270px;
+        height: 100%;
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &:before {
+            position: absolute;
+            content: "";
+            left: -90%;
+            width: 270%;
+            height: 100%;
+            transform: skewX(-10deg);
+            background: url(../images/bg2.jpg) repeat center center;
+            background-size: cover;
+            z-index: 0;
+        }
+    }
+    &__item {
+        position: relative;
+        left: 0;
+        width: 260px;
+        margin-bottom: 40px;
+        z-index: 1;
+        transition: left 0.3s;
+        a {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            height: 60px;
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 37%;
+                transform: translateY(-50%);
+                background-color: #4522f3;
+                height: 3px;
+                width: 300px;
+                right: 200px;
+            }
+        }
+        &:hover {
+            left: 50px;
+        }
+    }
+    &-explore {
+        a {
+            background: url(../images/menu-explore.png) no-repeat right center;
+            background-size: contain;
+            &:before {
+                right: 179px;
+            }
+        }
+    }
+    &-index {
+        a {
+            background: url(../images/menu-index.png) no-repeat right center;
+            background-size: contain;
+            &:before {
+                right: 134px;
+            }
+        }
+    }
+    &-challenge {
+        a {
+            background: url(../images/menu-challenge.png) no-repeat right center;
+            background-size: contain;
+            &:before {
+                right: 187px;
+            }
+        }
+    }
+    &-regulation {
+        a {
+            
+            background: url(../images/menu-regulation.png) no-repeat right center;
+            background-size: contain;
+            &:before {
+                right: 213px;
+            }
+        }
+    }
+    &-share {
+        a {
+            background: url(../images/menu-share.png) no-repeat right center;
+            background-size: contain;
+            &:hover {
+                background: url(../images/menu-share_hover.png) no-repeat right center;
+                background-size: contain;
+            }
+            &:before {
+                right: 143px;
+            }
+        }
+    }
+    &__copyright {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+}
+
+@media (min-width: 768px) {
+    .hamburger {
+        .line {
+            width: 35px;
+            &:before {
+                width: 45px;
+                top: 13px;
+            }
+            &:after {
+                width: 30px;
+                top: 26px;
+            }
+        }
+    }
+    .menu {
+        &__back {
+            width: 54px;
+            padding-bottom: 3%;
+        }
+        &__list {
+            width: 380px;
+            &:before {
+                left: -80%;
+                width: 200%;
+            }
+        }
+        &__item {
+            margin-bottom: 50px;
+        }
+        &-explore {
+            width: 332px;
+            a {
+                &:hover {
+                    background: url(../images/menu-explore_hover.png) no-repeat right center;
+                    background-size: contain;
+                }
+            }
+        }
+        &-index {
+            width: 312px;
+            a {
+                &:hover {
+                    background: url(../images/menu-index_hover.png) no-repeat right center;
+                    background-size: contain;
+                }
+            }
+        }
+        &-challenge {
+            width: 291px;
+            a {
+                &:hover {
+                    background: url(../images/menu-challenge_hover.png) no-repeat right center;
+                    background-size: contain;
+                }
+            }
+        }
+        &-regulation {
+            width: 271px;
+            a {
+                &:hover {
+                    background: url(../images/menu-regulation_hover.png) no-repeat right center;
+                    background-size: contain;
+                }
+            }
+        }
+        &-share {
+            width: 251px;
+        }
+        &__copyright {
+            width: auto;
+            left: 65px;
+            bottom: 10px;
+            text-align: left;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-height: 768px) {
+    .menu {
+        &__item {
+            margin-bottom: 40px;
+        }
+    }
+}
